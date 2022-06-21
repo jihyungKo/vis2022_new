@@ -1,8 +1,5 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
   Navigate
 } from "react-router-dom";
 import MainPage from './containers/MainPage';
@@ -12,6 +9,7 @@ import EndPage from './containers/EndPage';
 import GameMainPage from './containers/GameMainPage';
 import Tutorial from './containers/Tutorial';
 import Story from './containers/Story';
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
