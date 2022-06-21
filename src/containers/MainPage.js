@@ -92,6 +92,7 @@ export default class MainPage extends Component {
         const imageclick = (dest) => {
           var temp = window.location.href.split('/');
           temp.pop();
+          console.log(temp + dest);
           document.location.href = temp + dest;
         }
         return (
