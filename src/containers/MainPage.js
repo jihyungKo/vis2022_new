@@ -90,7 +90,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 export default class MainPage extends Component {
     render() {
         const imageclick = (dest) => {
-          document.location.href = window.location.href + dest
+          console.log(window.location.href + dest);
         }
         return (
           <Box style = {{ display:'flex', flexDirection: 'column',  alignItems:'center', justifyContent: 'center', height: '100vh', width: '100vw', backgroundColor: '#e4f2d8'}}>
