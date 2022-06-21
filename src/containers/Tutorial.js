@@ -7,7 +7,8 @@ import Typist from 'react-typist';
 export class Tutorial extends Component {
   render() {
     const imageclick = (dest) => {
-        document.location.href = window.location.href + dest
+        var temp = window.location.href.split('/'); temp.pop(); var link_temp = temp.join('/');
+        document.location.href = link_temp + dest
     }
     return (
       <Box

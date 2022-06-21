@@ -26,6 +26,10 @@ else{
   script = "당선을 축하합니다."
 }
 
+var temp = window.location.href.split('/');
+temp.pop();
+var link_temp = temp.join('/');
+
 export class EndPage extends Component {
   
   render() {
@@ -77,7 +81,7 @@ export class EndPage extends Component {
             </Box>
 
             <Box
-                onClick = {() => document.location.href = window.location.href + "/res"}
+                onClick = {() => document.location.href = link_temp + "/res"}
                 sx = {{
                     display: 'flex',
                     justifyContent: 'center',

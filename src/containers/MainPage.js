@@ -92,7 +92,8 @@ export default class MainPage extends Component {
         const imageclick = (dest) => {
           var temp = window.location.href.split('/');
           temp.pop();
-          console.log(temp + dest);
+          var link_temp = temp.join('/');
+          document.location.href = link_temp + dest;
         }
         return (
           <Box style = {{ display:'flex', flexDirection: 'column',  alignItems:'center', justifyContent: 'center', height: '100vh', width: '100vw', backgroundColor: '#e4f2d8'}}>

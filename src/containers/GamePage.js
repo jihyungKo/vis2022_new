@@ -208,7 +208,6 @@ const selectButtons_ = [
   ],
 ]
 
-
 export class GamePage extends Component {
   constructor(props) {
     super(props);
@@ -238,7 +237,10 @@ export class GamePage extends Component {
     
     
     const imageclick = (dest) => {
-      document.location.href=window.location.href + dest;
+      var temp = window.location.href.split('/');
+      temp.pop();
+      var link_temp = temp.join('/');
+      document.location.href= link_temp + dest;
     }
     const scoreSelect = (selectedScore, selected_block_num, selected_pop_num, selected_mon_num) => {
       this.setState({selected_score: selectedScore});
@@ -256,12 +258,15 @@ export class GamePage extends Component {
         popular += this.state.selected_pop;
         money -= this.state.selected_mon;
         console.log(score);
+        var temp = window.location.href.split('/');
+        temp.pop();
+        var link_temp = temp.join('/');
         if (score == 0){ // 0점 도달
-          document.location.href=window.location.href + "/end?level=" + score + "?popular=" + popular;
+          document.location.href= link_temp + "/end?level=" + score + "?popular=" + popular;
         }
         if (this.state.stage == 3) // stage 마무리
           {
-            document.location.href="/end?level=" + score + "?popular=" + popular;
+            document.location.href= link_temp + "/end?level=" + score + "?popular=" + popular;
           }
         if ( score == 0){
           link = "https://ifh.cc/g/WMYrfF.jpg";
@@ -333,8 +338,9 @@ export class GamePage extends Component {
               width: '20%'
             }}
           >
-            <SvgIcon component={HomeIcon} onClick={() => {document.location.href= window.location.href + '/main'}} m='auto' style={{fontSize: '25px'}} inheritViewBox/>
+            <SvgIcon component={HomeIcon} onClick={() => {var temp = window.location.href.split('/'); temp.pop(); var link_temp = temp.join('/'); document.location.href= link_temp + '/main'}} m='auto' style={{fontSize: '25px'}} inheritViewBox/>
           </Box>
+          
           <Box
             id = 'contentLetter'
             sx={{
