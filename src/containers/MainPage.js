@@ -93,7 +93,6 @@ export default class MainPage extends Component {
           var temp = window.location.href.split('/');
           temp.pop();
           console.log(temp + dest);
-          document.location.href = temp + dest;
         }
         return (
           <Box style = {{ display:'flex', flexDirection: 'column',  alignItems:'center', justifyContent: 'center', height: '100vh', width: '100vw', backgroundColor: '#e4f2d8'}}>
