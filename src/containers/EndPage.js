@@ -77,7 +77,7 @@ export class EndPage extends Component {
             </Box>
 
             <Box
-                onClick = {() => document.location.href = "/res"}
+                onClick = {() => document.location.href = window.location.href + "/res"}
                 sx = {{
                     display: 'flex',
                     justifyContent: 'center',

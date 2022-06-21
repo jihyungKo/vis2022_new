@@ -91,7 +91,7 @@ transition: theme.transitions.create('opacity'),
 export class GameMainPage extends Component {
   render() {
     const imageclick = (dest) => {
-        document.location.href = dest
+        document.location.href = window.location.href + dest
     }
     return (
       <Box

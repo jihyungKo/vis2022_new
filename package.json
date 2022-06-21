@@ -2,7 +2,7 @@
   "name": "new_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jihyungko.github.io/vis2022_new",
+  "homepage": "https://jihyungko.github.io/vis2022_new",
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",

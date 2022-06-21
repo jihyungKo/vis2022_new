@@ -238,7 +238,7 @@ export class GamePage extends Component {
     
     
     const imageclick = (dest) => {
-      document.location.href=dest;
+      document.location.href=window.location.href + dest;
     }
     const scoreSelect = (selectedScore, selected_block_num, selected_pop_num, selected_mon_num) => {
       this.setState({selected_score: selectedScore});
@@ -257,7 +257,7 @@ export class GamePage extends Component {
         money -= this.state.selected_mon;
         console.log(score);
         if (score == 0){ // 0점 도달
-          document.location.href="/end?level=" + score + "?popular=" + popular;
+          document.location.href=window.location.href + "/end?level=" + score + "?popular=" + popular;
         }
         if (this.state.stage == 3) // stage 마무리
           {
@@ -333,7 +333,7 @@ export class GamePage extends Component {
               width: '20%'
             }}
           >
-            <SvgIcon component={HomeIcon} onClick={() => {document.location.href='/main'}} m='auto' style={{fontSize: '25px'}} inheritViewBox/>
+            <SvgIcon component={HomeIcon} onClick={() => {document.location.href= window.location.href + '/main'}} m='auto' style={{fontSize: '25px'}} inheritViewBox/>
           </Box>
           <Box
             id = 'contentLetter'

@@ -42,7 +42,7 @@ export class GameMainPage extends Component {
     const imageclick = (dest) => {
         if (this.state.stage == 4)
         {
-          document.location.href=dest;
+          document.location.href = window.location.href + est;
         }
         this.setState({stage: this.state.stage+1});   
     }
