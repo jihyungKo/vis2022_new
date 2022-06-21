@@ -13,13 +13,13 @@ const images = [
     url: "https://ifh.cc/g/v5tZ5G.png",
     title: '게임 시작하기',
     width: '50%',
-    dest: "/game_main"
+    dest: "../game_main"
   },
   {
     url: "https://ifh.cc/g/v5tZ5G.png",
     title: '결과 페이지 바로보기',
     width: '50%',
-    dest: "/res"
+    dest: "../res"
   }
 ];
 
@@ -90,7 +90,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 export default class MainPage extends Component {
     render() {
         const imageclick = (dest) => {
-          console.log(window.location.href + dest);
+          document.location.href = dest;
         }
         return (
           <Box style = {{ display:'flex', flexDirection: 'column',  alignItems:'center', justifyContent: 'center', height: '100vh', width: '100vw', backgroundColor: '#e4f2d8'}}>
