@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "mainfont";
+    src: url("../../public/fonts/나눔손글씨_옥비체.ttf");
+  }
+  
+
+#contentLetter{
+    font-family: "mainfont"
+}

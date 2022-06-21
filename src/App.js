@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate
+} from "react-router-dom";
+import MainPage from './containers/MainPage';
+import GamePage from './containers/GamePage';
+import ResPage from './containers/ResPage';
+import EndPage from './containers/EndPage';
+import GameMainPage from './containers/GameMainPage';
+import Tutorial from './containers/Tutorial';
+import Story from './containers/Story';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route exact path="/main" element={<MainPage/>} />
+          <Route exact path="/game" element={<GamePage/>} />
+          <Route exact path="/res" element={<ResPage/>} />
+          <Route exact path="/end" element={<EndPage/>} />
+          <Route exact path="/game_main" element={<GameMainPage/>} />
+          <Route exact path="/tutorial" element={<Tutorial/>} />
+          <Route exact path="/story" element={<Story/>} />
+          <Route exact path="/" element={<Navigate replace to="/main" />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
