@@ -12,13 +12,13 @@ import './GameMainPage.css';
 
 const images = [
     {
-      url: "https://ifh.cc/g/v5tZ5G.png",
+      url: "https://ifh.cc/g/vsjckf.png",
       title: '게임시작',
       width: '50%',
       dest: "/story"
     },
     {
-      url: "https://ifh.cc/g/v5tZ5G.png",
+      url: "https://ifh.cc/g/vsjckf.png",
       title: '결과페이지',
       width: '50%',
       dest: "/res"
@@ -75,7 +75,7 @@ right: 0,
 top: 0,
 bottom: 0,
 backgroundColor: theme.palette.common.white,
-opacity: 0.5,
+opacity: 1,
 transition: theme.transitions.create('opacity'),
 }));
 
