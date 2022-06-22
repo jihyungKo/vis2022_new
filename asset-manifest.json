@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/vis2022_new/static/css/main.1617eda6.css",
-    "main.js": "/vis2022_new/static/js/main.36bac5d7.js",
+    "main.js": "/vis2022_new/static/js/main.886f2bae.js",
     "static/js/787.5373ea6b.chunk.js": "/vis2022_new/static/js/787.5373ea6b.chunk.js",
     "static/media/이서윤체.ttf": "/vis2022_new/static/media/이서윤체.303fc5f48a2a2220645a.ttf",
     "static/media/나눔스퀘어라운드_regular.ttf": "/vis2022_new/static/media/나눔스퀘어라운드_regular.f062cb52be3e9829834c.ttf",
@@ -10,11 +10,11 @@
     "static/media/나눔스퀘어라운드_light.ttf": "/vis2022_new/static/media/나눔스퀘어라운드_light.34b53f3711c695552994.ttf",
     "index.html": "/vis2022_new/index.html",
     "main.1617eda6.css.map": "/vis2022_new/static/css/main.1617eda6.css.map",
-    "main.36bac5d7.js.map": "/vis2022_new/static/js/main.36bac5d7.js.map",
+    "main.886f2bae.js.map": "/vis2022_new/static/js/main.886f2bae.js.map",
     "787.5373ea6b.chunk.js.map": "/vis2022_new/static/js/787.5373ea6b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1617eda6.css",
-    "static/js/main.36bac5d7.js"
+    "static/js/main.886f2bae.js"
   ]
 }
