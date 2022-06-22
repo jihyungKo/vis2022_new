@@ -63,7 +63,7 @@ export class Tutorial extends Component {
                 }}
             >
                 <Typist>
-                    [ 튜토리얼 ] </br>
+                    [ 튜토리얼 ] <br/>
                     자! 이제 선거에서 승리하러 가볼까? ▶
                 </Typist>
                 
