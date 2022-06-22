@@ -12,7 +12,7 @@ const story_images = [
 
     },
     {
-        image_src: "https://ifh.cc/g/4XnlVz.jpg",
+        image_src: "https://ifh.cc/g/4HrcYf.jpg",
         script: "티비에서 7회 지선에서 발생한 쓰레기 문제가 심각하다는 뉴스를 보고 환경공약을 내고 그에 걸맞게 친환경 선거를 해보리라 마음 먹었다. ▶"
 
     },

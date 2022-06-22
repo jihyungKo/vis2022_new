@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
 import { alpha } from '@mui/material/styles';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import SvgIcon from '@mui/material/SvgIcon';
@@ -8,7 +9,7 @@ import './GamePage.css';
 import {isMobile} from 'react-device-detect';
 import ToastServive from 'react-material-toast';
 import {Bar} from 'react-chartjs-2';
-import { Pie } from 'react-chartjs-2';
+import { styled } from '@mui/material/styles';
 import { PieChart } from 'react-minimal-pie-chart';
 import {
   Chart as ChartJS,
@@ -27,10 +28,32 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 var score = 100;
 var money = 10;
 var popular = 20;
-var link = "https://ifh.cc/g/TXzCfO.jpg";
+var link = "https://ifh.cc/g/qnP9w9.jpg";
+
+const ImageSrc = styled('span')({
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center 40%',
+  });
+
+const ImageBackdrop = styled('span')(({ theme }) => ({
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  top: 0,
+  bottom: 0,
+  backgroundColor: theme.palette.common.white,
+  opacity: 0.2,
+  transition: theme.transitions.create('opacity'),
+  }));
+  
 
 const defaultLabelStyle = {
-  fontSize: '14px',
+  fontSize: '20px',
   fontFamily: 'Roboto Medium',
 };
 
@@ -48,7 +71,8 @@ const options = {
       min:0,
       max: 100,
       grid: {
-        display: false
+        display: false,
+        color: 'white'
       },
       ticks: {
         stepSize: 20,
@@ -95,7 +119,7 @@ const selectButtons = [
     {
       content: "무분별하게 많이 제작해버려",
       id: 0,
-      score: 20,
+      score: 30,
       pop: 10,
       mon: 1.5
     },
@@ -118,7 +142,7 @@ const selectButtons = [
     {
       content: "엄청 많이 뿌려서 바닥에 나뒹굴게 해버리자",
       id: 1,
-      score: 20,
+      score: 30,
       pop: 10,
       mon: 2
     }
@@ -213,6 +237,7 @@ export class GamePage extends Component {
     super(props);
       this.state={
        stage: 0,
+       total_score: 100,
        selected_block: -1,
        selected_score: 0,
        selected_pop: 0,
@@ -224,12 +249,12 @@ export class GamePage extends Component {
       labels: [''],
       datasets: [{
         label: 'My First Dataset',
-        data: [score],
+        data: [this.state.total_score],
         backgroundColor: [
-          '#76BA99'
+          '#F7FF93'
         ],
         borderColor: [
-          'rgb(75, 192, 192)'
+          'rgb(0, 0, 0)'
         ],
         borderWidth: 1
       }]
@@ -249,12 +274,12 @@ export class GamePage extends Component {
       this.setState({selected_mon: selected_mon_num})
     }
     const scoreMinus = (adding_score) => {
-      console.log(score);
-      if (adding_score != -5 && this.state.selected_block_num == -1){
+      if (adding_score != -5 && this.state.selected_block == -1){
         const id = toast.warning('선택지를 클릭하거나 스킵을 하세요.');
       }
       else{
         if(adding_score != -5){
+          this.setState({total_score: this.state.total_score-this.state.selected_score});
           score -= this.state.selected_score;
           popular += this.state.selected_pop;
           money -= this.state.selected_mon;
@@ -262,34 +287,29 @@ export class GamePage extends Component {
         else{
           popular -= 5;
         }
-        console.log(score);
         var temp = window.location.href.split('/');
         temp.pop();
         var link_temp = temp.join('/');
-        if (score == 0){ // 0점 도달
+        if (this.state.total_score -  this.state.selected_score<= 0){ // 0점 도달
           document.location.href= link_temp + "/end?level=" + score + "&popular=" + popular;
         }
-        if (this.state.stage == 3) // stage 마무리
+        else if (this.state.stage == 3) // stage 마무리
           {
             document.location.href= link_temp + "/end?level=" + score + "&popular=" + popular;
           }
-        if ( score == 0){
-          link = "https://ifh.cc/g/6oFO0H.jpg";
+        else if (this.state.total_score <= 20) {
+          link = "https://ifh.cc/g/3Jm6W7.jpg";
         }
-        else if (score <= 20) {
-          link = "https://ifh.cc/g/zBfSxT.jpg";
+        else if (this.state.total_score <= 40){
+          link = "https://ifh.cc/g/2Mc8H0.jpg";
         }
-        else if (score <= 40){
-          link = "https://ifh.cc/g/waKnPW.jpg";
+        else if (this.state.total_score <= 60){
+          link = "https://ifh.cc/g/WZ9D0x.jpg";
         }
-        else if (score <= 60){
-          link = "https://ifh.cc/g/93BJTB.jpg";
-        }
-        else if (score <= 80 ){
-          link = "https://ifh.cc/g/sCArjW.jpg";
+        else if (this.state.total_score <= 80 ){
+          link = "https://ifh.cc/g/LRz19h.jpg";
         }
         
-
         this.setState({stage: this.state.stage+1});
         this.setState({selected_block: -1});
         this.setState({selected_score: 0});
@@ -299,7 +319,19 @@ export class GamePage extends Component {
       }
       
     }
+
+    const sectionStyle = {
+      height: "100vh",
+    
+      backgroundImage: `url(${link})`,
+      backgroundPosition: '50% 50%',
+    
+      backgroundRepeat: "repeat",
+      backgroundSize: "cover"
+    };
+    
     return (
+      <div style = {sectionStyle}>
       <Box
         sx={{
           display: 'flex',
@@ -307,203 +339,184 @@ export class GamePage extends Component {
           justifyContent: 'center'
         }}
       >
-
-      
-      <Box
-      style = {{backgroundColor: '#e4f2d8'}}
-      sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        bgcolor: 'background.paper',
-        overflow: 'hidden',
-        borderRadius: '12px',
-        boxShadow: 1,
-        fontWeight: 'bold',
-        height: '100vh',
-        width: (isMobile ? '100vw': 'min-content' )
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems:'center',
-          height: '100%',
-          width: '80%',
-          minWidth: { md: 350 },
-        }}
-
-      >
-        <Box component="span" sx={{height:'10%', display: 'flex', flexDirection: 'row', alignItems:'center', width: '100%' }}>
-          <Box
-            sx={{
-              display: 'flex', alignItems:'center', justifyContent: 'center',
-              width: '20%'
-            }}
-          >
-            <SvgIcon component={HomeIcon} onClick={() => {var temp = window.location.href.split('/'); temp.pop(); var link_temp = temp.join('/'); document.location.href= link_temp + '/main'}} m='auto' style={{fontSize: '25px'}} inheritViewBox/>
-          </Box>
-          
-          <Box
-            id = 'extraboldLetter'
-            sx={{
-              display: 'flex', alignItems:'center', justifyContent: 'end',
-              width: '55%'
-            }}
-          >
-            당 선 기 원
-          </Box>
-        </Box>
         <Box
-          component="img"
           sx={{
-            height: '60%',
-            width: 'fill-available'
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
+            borderRadius: '12px',
+            boxShadow: 1,
+            fontWeight: 'bold',
+            height: '100vh',
+            width: (isMobile ? '100vw': 'min-content' )
           }}
-          alt="background"
-          src = {link}
-        />
-        <Box component="span" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center', height:'40%', width: '100%' }}>
-          <Box
-            id = 'regularLetter'
-            m = 'auto'
-            sx = {{display: 'flex', fontSize: 14,justifyContent: 'center', alignItems:'center', height: '20%', width: "95%"}}
-          >
-            {questions[this.state.stage]}
-          </Box>
-          <Box
-            sx = {{display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems:'center', height: '100%', width: '100%'}}
-          >
+        >
             <Box
-              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '45%', width: '100%'}}
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems:'center',
+                height: '70vh',
+                width: '100vw'
+              }}
             >
-              {selectButtons[this.state.stage].map((selectedButton) => (
+              <Box
+                component="span"
+                sx={{
+                  height: '100%',
+                  width: '75%'
+                }}
+              />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems:'center',
+                  height: '100%',
+                  width: '25%',
+                  borderRadius: '0%'
+                }}
+              >
                 <Box
-                  onClick = {() => scoreSelect(selectedButton.score, selectedButton.id, selectedButton.pop, selectedButton.mon)}
-                  id = 'lightLetter'
-                  color = {this.state.selected_block === selectedButton.id  ? 'orange':'black'}
-                  sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', height: '100%', bgcolor: 'background.paper',
+                  sx = {{
+                    height: '5%'
+                  }}
+                />
+                <Box id = 'extraboldLetter' sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', fontSize: 12, height: '5%' }}>
+                  환경
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', height: '50%' }}>
+                  <Bar data={data} options={options} />
+                </Box>
+                
+                <Box id = 'extraboldLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 12, mt: 1, height:'5%' }}>
+                  여론
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 14, mt: 1, width: '70%', height:'10%' }}>
+                  <PieChart
+                    data={[
+                      { title: '나', value: popular, color: '#F7FF93' },
+                      { title: '적', value: 100-popular, color: '#FF9F29' }
+                    ]}
+                    label={({ dataEntry }) => dataEntry.title + " " + dataEntry.value}
+                    labelStyle={{
+                      ...defaultLabelStyle,
+                    }}
+                  />
+                </Box>
+                <Box
+                  sx = {{
+                    height: '10%'
+                  }}
+                />
+                <Box
+                  sx = {{
+                    width: '50%'
+                  }}
+                  component = "img"
+                  src = "https://ifh.cc/g/ZJXdWL.png"
+                />
+                <Box id = 'extraboldLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'top',fontSize: 13, mt: 1, width: '50%', height:'5%' }}>
+                  {money}억
+                </Box>
+              </Box>
+            </Box>
+
+            <Box component="span" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center', height:'30vh', width: '100vw', borderRadius: '0%' }}>
+              <Box
+                id = 'extraboldLetter'
+                m = 'auto'
+                sx = {{display: 'flex', fontSize: 14,justifyContent: 'center', alignItems:'center', height: '20%', width: "95%"}}
+              >
+                {questions[this.state.stage]}
+              </Box>
+              <Box
+                sx = {{display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems:'center', height: '100%', width: '100%'}}
+              >
+                <Box
+                  sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '45%', width: '100%'}}
+                >
+                  {selectButtons[this.state.stage].map((selectedButton) => (
+                    <Box
+                      onClick = {() => scoreSelect(selectedButton.score, selectedButton.id, selectedButton.pop, selectedButton.mon)}
+                      id = 'lightLetter'
+                      style = {{backgroundColor: 'white'}}
+                      color = {this.state.selected_block === selectedButton.id  ? 'orange':'black'}
+                      sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', height: '100%', 
+                      overflow: 'hidden',
+                      borderRadius: '12px',
+                      height: '70%',
+                      border: 1,
+                      fontSize: 12,
+                      borderColor: (this.state.selected_block == selectedButton.id  ? 'orange':'black'),
+                      padding: '5px',
+                      boxShadow: 1, margin: '10px'}}
+                    >
+                      {selectedButton.content}
+                    </Box>
+                      )
+                    )
+                  }
+                </Box>
+                
+                <Box
+                  sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '45%', width: '100%'}}
+                >
+                  {selectButtons_[this.state.stage].map((selectedButton) => (
+                    <Box
+                      onClick = {() => scoreSelect(selectedButton.score, selectedButton.id, selectedButton.pop, selectedButton.mon)}
+                      id = 'lightLetter'
+                      color = {this.state.selected_block === selectedButton.id  ? 'orange':'black'}
+                      sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', bgcolor: 'background.paper',
+                      overflow: 'hidden',
+                      borderRadius: '12px',
+                      border: 1,
+                      fontSize: 12,
+                      borderColor: (this.state.selected_block == selectedButton.id  ? 'orange':'black'),
+                      height: '70%',
+                      padding: '5px',
+                      boxShadow: 1, margin: '10px'}}
+                    >
+                      {selectedButton.content}
+                    </Box>
+                      )
+                    )
+                  }
+                </Box>
+              </Box>
+              <Box
+                sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '30%', width: '100%'}}
+              >
+                <Box
+                  onClick = {() => scoreMinus(this.selectedScore) }
+                  id = 'regularLetter'
+                  sx = {{display: 'flex', fontSize: 12,justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
                   overflow: 'hidden',
                   borderRadius: '12px',
-                  height: '70%',
-                  border: 1,
-                  fontSize: 12,
-                  borderColor: (this.state.selected_block == selectedButton.id  ? 'orange':'black'),
-                  padding: '5px',
-                  boxShadow: 1, margin: '10px'}}
+                  height: '50%',
+                  boxShadow: 1, margin: '5px'}}
                 >
-                {selectedButton.content}
-              </Box>
-              )
-            )
-          }
-            </Box>
-            
-            <Box
-              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '45%', width: '100%'}}
-            >
-              {selectButtons_[this.state.stage].map((selectedButton) => (
-                <Box
-                  onClick = {() => scoreSelect(selectedButton.score, selectedButton.id, selectedButton.pop, selectedButton.mon)}
-                  id = 'lightLetter'
-                  color = {this.state.selected_block === selectedButton.id  ? 'orange':'black'}
-                  sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', bgcolor: 'background.paper',
-                  overflow: 'hidden',
-                  borderRadius: '12px',
-                  border: 1,
-                  fontSize: 12,
-                  borderColor: (this.state.selected_block == selectedButton.id  ? 'orange':'black'),
-                  height: '70%',
-                  padding: '5px',
-                  boxShadow: 1, margin: '10px'}}
-                >
-                {selectedButton.content}
-              </Box>
-              )
-            )
-          }
-            </Box>
-            <Box
-              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '30%', width: '100%'}}
-            >
-                <Box
-                    onClick = {() => scoreMinus(this.selectedScore) }
-                    id = 'regularLetter'
-                    sx = {{display: 'flex', fontSize: 12,justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
-                    overflow: 'hidden',
-                    borderRadius: '12px',
-                    height: '50%',
-                    boxShadow: 1, margin: '5px'}}
-                  >
                   다음으로
                 </Box>
                 <Box
-                    onClick = {() => scoreMinus(-5) }
-                    id = 'regularLetter'
-                    sx = {{display: 'flex', fontSize: 12, justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
-                    overflow: 'hidden',
-                    borderRadius: '12px',
-                    height: '50%',
-                    boxShadow: 1, margin: '5px'}}
-                  >
+                  onClick = {() => scoreMinus(-5) }
+                  id = 'regularLetter'
+                  sx = {{display: 'flex', fontSize: 12, justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
+                  overflow: 'hidden',
+                  borderRadius: '12px',
+                  height: '50%',
+                  boxShadow: 1, margin: '5px'}}
+                >
                   스킵(-5)
                 </Box>
               </Box>
-          </Box>
-        </Box>
-      </Box>
-      
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems:'center',
-          height: '100%',
-          width: '20%',
-          minWidth: { md: 100 },
-        }}
-      >
-        <Box component="span" sx={{ fontSize: 14, mt: 1, height:'30%' }}>
-        </Box>
-        <Box id = 'regularLetter' sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', fontSize: 14, height: '5%' }}>
-          환경지수
-          
-        </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', height: '40%' }}>
-          <Bar data={data} options={options} />
-        </Box>
-        <Box id = 'regularLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 14, mt: 1, height:'5%' }}>
-          여론조사
-        </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 14, mt: 1, width: '70%', height:'10%' }}>
-        <PieChart
-          data={[
-            { title: '나', value: popular, color: '#76BA99' },
-            { title: '라이벌', value: 100-popular, color: '#9A86A4' }
-          ]}
-          label={({ dataEntry }) => dataEntry.title + " " + dataEntry.value}
-          labelStyle={{
-            ...defaultLabelStyle,
-          }}
-        />
-        </Box>
-        <Box sx = {{height:'5%'}}/>
-        <Box
-            sx = {{
-              width: '50%'
-            }}
-            component = "img"
-            src = "https://ifh.cc/g/ZJXdWL.png"
-          />
-        <Box id = 'regularLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'top',fontSize: 14, mt: 1, width: '50%', height:'5%' }}>
-          {money}억
-        </Box>
-      </Box>
+            </Box>
 
-    </Box>
-    </Box>
+          </Box>
+      </Box>
+      </div>
     );
   }
 }
