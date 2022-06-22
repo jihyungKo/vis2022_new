@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/vis2022_new/static/css/main.45e77769.css",
-    "main.js": "/vis2022_new/static/js/main.c770578b.js",
+    "main.css": "/vis2022_new/static/css/main.1617eda6.css",
+    "main.js": "/vis2022_new/static/js/main.ebd134a8.js",
     "static/js/787.5373ea6b.chunk.js": "/vis2022_new/static/js/787.5373ea6b.chunk.js",
-    "static/media/나눔손글씨_옥비체.ttf": "/vis2022_new/static/media/나눔손글씨_옥비체.1b33c913dfa1e2b03ede.ttf",
+    "static/media/이서윤체.ttf": "/vis2022_new/static/media/이서윤체.303fc5f48a2a2220645a.ttf",
+    "static/media/나눔스퀘어라운드_regular.ttf": "/vis2022_new/static/media/나눔스퀘어라운드_regular.f062cb52be3e9829834c.ttf",
+    "static/media/나눔스퀘어라운드_Bold.ttf": "/vis2022_new/static/media/나눔스퀘어라운드_Bold.8ab117fc37409bd022e5.ttf",
+    "static/media/나눔스퀘어라운드_extrabold.ttf": "/vis2022_new/static/media/나눔스퀘어라운드_extrabold.ef4043133d5b2d0febb4.ttf",
+    "static/media/나눔스퀘어라운드_light.ttf": "/vis2022_new/static/media/나눔스퀘어라운드_light.34b53f3711c695552994.ttf",
     "index.html": "/vis2022_new/index.html",
-    "main.45e77769.css.map": "/vis2022_new/static/css/main.45e77769.css.map",
-    "main.c770578b.js.map": "/vis2022_new/static/js/main.c770578b.js.map",
+    "main.1617eda6.css.map": "/vis2022_new/static/css/main.1617eda6.css.map",
+    "main.ebd134a8.js.map": "/vis2022_new/static/js/main.ebd134a8.js.map",
     "787.5373ea6b.chunk.js.map": "/vis2022_new/static/js/787.5373ea6b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.45e77769.css",
-    "static/js/main.c770578b.js"
+    "static/css/main.1617eda6.css",
+    "static/js/main.ebd134a8.js"
   ]
 }
