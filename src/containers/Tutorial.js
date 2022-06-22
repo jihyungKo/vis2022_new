@@ -45,9 +45,9 @@ export class Tutorial extends Component {
                     alignItems: 'center',
                     justifyContent: 'center',
                     height: '70vh',
-                    width: '100vw'
+                    width: 'fit-content'
                 }}
-                src = "https://ifh.cc/g/ntw2Xj.jpg"
+                src = "https://ifh.cc/g/hpP6Ls.jpg"
             />
 
             <Box
@@ -63,6 +63,7 @@ export class Tutorial extends Component {
                 }}
             >
                 <Typist>
+                    [ 튜토리얼 ] </br>
                     자! 이제 선거에서 승리하러 가볼까? ▶
                 </Typist>
                 
