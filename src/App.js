@@ -16,11 +16,10 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path="/main" element={<MainPage/>} />
           <Route exact path="/game" element={<GamePage/>} />
           <Route exact path="/res" element={<ResPage/>} />
           <Route exact path="/end" element={<EndPage/>} />
-          <Route exact path="/game_main" element={<GameMainPage/>} />
+          <Route exact path="/main" element={<GameMainPage/>} />
           <Route exact path="/tutorial" element={<Tutorial/>} />
           <Route exact path="/story" element={<Story/>} />
           <Route exact path="/" element={<Navigate replace to="/main" />} />

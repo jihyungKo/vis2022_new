@@ -3,36 +3,42 @@ import {isMobile} from 'react-device-detect';
 import Box from '@mui/material/Box';
 import Typist from 'react-typist'
 
-const current = decodeURI(window.location.href);
-const search = current.split("?")[1];
-const params = new URLSearchParams(search);
-const keywords = params.get('level');
-const keywords2 = params.get('popular');
-
-var src = "";
-var number_env = parseInt(keywords);
-var number_pop = parseInt(keywords2);
-var script = "당선을 축하합니다"
-if (number_env == 0){
-  src = "https://ifh.cc/g/WMYrfF.jpg";
-  script = "당신의 마을을 지키지 못하였습니다."
-}
-else if (number_pop < 50){
-  src = "https://ifh.cc/g/50yp0Q.jpg";
-  script = "당선되지는 못했지만 환경지킴이 상을 받았다. 나중에 다시 도전해야지!"
-}
-else{
-  src = "https://ifh.cc/g/rRxB2J.jpg";
-  script = "당선을 축하합니다."
-}
-
-var temp = window.location.href.split('/');
-temp.pop();
-var link_temp = temp.join('/');
-
 export class EndPage extends Component {
-  
+    
   render() {
+    const current = decodeURI(window.location.href);
+    const search = current.split("?")[1];
+    const params = new URLSearchParams(search);
+    const keywords = params.get('level');
+    const keywords2 = params.get('popular');
+
+    var link = "";
+    var number_env = parseInt(keywords);
+    var number_pop = parseInt(keywords2);
+    var script = "당선을 축하합니다";
+
+    console.log(number_env, number_pop);
+    if (number_env == 0){
+      link = "https://ifh.cc/g/WMYrfF.jpg";
+      script = "당신의 마을을 지키지 못하였습니다."
+    }
+    else if (number_pop < 50){
+      link = "https://ifh.cc/g/50yp0Q.jpg";
+      script = "당선되지는 못했지만 환경지킴이 상을 받았다. 나중에 다시 도전해야지!"
+    }
+    else if (number_env >= 50){
+      link = "https://ifh.cc/g/d1Fzfm.jpg";
+      script = "환경지킴이 후보자로 당선되어 유퀴즈에 까지 출연하게 된 당신! 축하합니다."
+    }
+    else{
+      link = "https://ifh.cc/g/Z0g1pt.jpg";
+      script = "당선을 축하합니다. 그런데 당신 주변의 모습이 어떤가요?"
+    }
+
+    var temp = window.location.href.split('/');
+    temp.pop();
+    var link_temp = temp.join('/');
+
     return (
       <Box
         sx={{
@@ -75,16 +81,18 @@ export class EndPage extends Component {
                     height: '80vh',
                     width: (isMobile ? 'fill-available': 'fit-content' )
                 }}
-                src = {src}
+                src = {link}
             >
 
             </Box>
 
             <Box
+                id = "regularLetter"
                 onClick = {() => document.location.href = link_temp + "/res"}
                 sx = {{
                     display: 'flex',
                     justifyContent: 'center',
+                    fontSize: 14,
                     alignItems: 'center',
                     height: '20vh',
                     width: (isMobile ? '90vw' : '50vw' )

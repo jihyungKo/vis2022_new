@@ -27,11 +27,11 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 var score = 100;
 var money = 10;
 var popular = 20;
-var link = "https://ifh.cc/g/LvfJ3A.jpg";
+var link = "https://ifh.cc/g/TXzCfO.jpg";
 
 const defaultLabelStyle = {
-  fontSize: '12px',
-  fontFamily: 'sans-serif',
+  fontSize: '14px',
+  fontFamily: 'Roboto Medium',
 };
 
 const options = {
@@ -68,75 +68,75 @@ const toast = ToastServive.new({
   maxCount:8
 });
 const questions = [
-  "Q. 후보자로 나온 당신, 동네 곳곳에 현수막과 벽보를 걸어서 홍보해볼까요?",
-  "Q. 이번에는 공보와 공약서를 걸어서 당신의 공약을 홍보합시다. 어떤 방법을 택할까요?",
-  "Q. 이번에는 공보와 공약서를 걸어서 당신의 공약을 홍보합시다. 어떤 방법을 택할까요?",
-  "Q. 이번에는 공보와 공약서를 걸어서 당신의 공약을 홍보합시다. 어떤 방법을 택할까요?"
+  "Q. 현수막과 벽보로 어떻게 홍보해볼까요?",
+  "Q. 공보와 공약서를 걸어서 공약을 홍보해보자",
+  "Q. 명함으로 이름을 알릴거예요",
+  "Q. 거리에서 나를 어떻게 홍보할까?"
 ]
 
 const selectButtons = [
   [
     {
-      content: "현수막을 낭비하지 않고 적게 건다.",
+      content: "낭비하지 말자, 최대한 적게 걸자",
       id: 0,
-      score: 10,
+      score: 20,
       pop: 10,
       mon: 1
     },
     {
-      content: "일반 현수막을 온 동네방네 걸어둔다.",
+      content: "온 동네방네 걸어버리자",
       id: 1,
-      score: 20,
+      score: 40,
       pop: 20,
+      mon: 2
+    }
+  ],
+  [
+    {
+      content: "무분별하게 많이 제작해버려",
+      id: 0,
+      score: 20,
+      pop: 10,
+      mon: 1.5
+    },
+    {
+      content: "적당량을 제작하자",
+      id: 1,
+      score: 10,
+      pop: 5,
       mon: 1
     }
   ],
   [
     {
-      content: "선택지2-1",
+      content: "이면지에 손글씨로 손수 제작하자",
       id: 0,
-      score: 10,
-      pop: 20,
-      mon: 1
+      score: 20,
+      pop: 3,
+      mon: 0
     },
     {
-      content: "선택지2-2",
+      content: "엄청 많이 뿌려서 바닥에 나뒹굴게 해버리자",
       id: 1,
       score: 20,
-      pop: 20,
-      mon: 1
+      pop: 10,
+      mon: 2
     }
   ],
   [
     {
-      content: "선택지3-1",
+      content: "피켓과 새 옷, 팔토시를 깔맞춤하여 유세차량을 타면서 홍보하자",
       id: 0,
-      score: 10,
-      pop: 20,
+      score: 20,
+      pop: 10,
       mon: 1
     },
     {
-      content: "선택지2-2",
+      content: "쓰던 것을 재활용하고 유세차랑을 타며 홍보하자",
       id: 1,
-      score: 20,
-      pop: 20,
-      mon: 1
-    }
-  ],
-  [
-    {
-      content: "선택지4-1",
-      id: 0,
       score: 10,
-      pop: 20,
-      mon: 1
-    },
-    {
-      content: "선택지2-2",
-      id: 1,
-      score: 20,
-      pop: 20,
-      mon: 1
+      pop: 10,
+      mon: 0.5
     }
   ],
 ];
@@ -144,66 +144,66 @@ const selectButtons = [
 const selectButtons_ = [
   [
     {
-      content: "좀 비싸지만 재활용 현수막을 적재적소에 적게 걸어둔다.",
+      content: "비싼 재활용 현수막을 적당히 걸자",
       id: 2,
-      score: 30,
+      score: 10,
+      pop: 10,
+      mon: 2
+    },
+    {
+      content: "비싼 재활용 현수막을 동네방네 걸자",
+      id: 3,
+      score: 20,
       pop: 20,
+      mon: 4
+    }
+  ],
+  [
+    {
+      content: "재활용 종이를 사용하여 많이 제작하자",
+      id: 2,
+      score: 10,
+      pop: 10,
+      mon: 3
+    },
+    {
+      content: "재활용 종이를 사용하여 적게 제작하자",
+      id: 3,
+      score: 5,
+      pop: 5,
+      mon: 2
+    }
+  ],
+  [
+    {
+      content: "적당량 만큼만 만들자",
+      id: 2,
+      score: 10,
+      pop: 10,
       mon: 1
     },
     {
-      content: "돈을 많이 써서 재활용 현수막을 동네방네 걸어둔다.",
+      content: "재활용 용지로 적당량을 만들자",
       id: 3,
-      score: 40,
-      pop: 20,
+      score: 5,
+      pop: 10,
       mon: 1
     }
   ],
   [
     {
-      content: "선택지2-3",
+      content: "혼자 자전거를 타면서 집에 있는 노래방 기계로 홍보하자",
       id: 2,
-      score: 30,
+      score: 0,
       pop: 20,
-      mon: 1
+      mon: 0
     },
     {
-      content: "선택지2-4",
+      content: "피켓과 옷, 팔토시를 제작하여 거리 홍보만 해보자",
       id: 3,
-      score: 40,
-      pop: 20,
-      mon: 1
-    }
-  ],
-  [
-    {
-      content: "선택지2-3",
-      id: 2,
-      score: 30,
-      pop: 20,
-      mon: 1
-    },
-    {
-      content: "선택지2-4",
-      id: 3,
-      score: 40,
-      pop: 20,
-      mon: 1
-    }
-  ],
-  [
-    {
-      content: "선택지2-3",
-      id: 2,
-      score: 30,
-      pop: 20,
-      mon: 1
-    },
-    {
-      content: "선택지2-4",
-      id: 3,
-      score: 40,
-      pop: 20,
-      mon: 1
+      score: 10,
+      pop: 15,
+      mon: 0.5
     }
   ],
 ]
@@ -226,7 +226,7 @@ export class GamePage extends Component {
         label: 'My First Dataset',
         data: [score],
         backgroundColor: [
-          'rgba(75, 192, 192, 0.2)'
+          '#76BA99'
         ],
         borderColor: [
           'rgb(75, 192, 192)'
@@ -250,38 +250,43 @@ export class GamePage extends Component {
     }
     const scoreMinus = (adding_score) => {
       console.log(score);
-      if (this.state.selected_score == 0){
+      if (adding_score != -5 && this.state.selected_block_num == -1){
         const id = toast.warning('선택지를 클릭하거나 스킵을 하세요.');
       }
       else{
-        score -= this.state.selected_score;
-        popular += this.state.selected_pop;
-        money -= this.state.selected_mon;
+        if(adding_score != -5){
+          score -= this.state.selected_score;
+          popular += this.state.selected_pop;
+          money -= this.state.selected_mon;
+        }
+        else{
+          popular -= 5;
+        }
         console.log(score);
         var temp = window.location.href.split('/');
         temp.pop();
         var link_temp = temp.join('/');
         if (score == 0){ // 0점 도달
-          document.location.href= link_temp + "/end?level=" + score + "?popular=" + popular;
+          document.location.href= link_temp + "/end?level=" + score + "&popular=" + popular;
         }
         if (this.state.stage == 3) // stage 마무리
           {
-            document.location.href= link_temp + "/end?level=" + score + "?popular=" + popular;
+            document.location.href= link_temp + "/end?level=" + score + "&popular=" + popular;
           }
         if ( score == 0){
-          link = "https://ifh.cc/g/WMYrfF.jpg";
+          link = "https://ifh.cc/g/6oFO0H.jpg";
         }
         else if (score <= 20) {
-          link = "https://ifh.cc/g/AxOcs6.jpg";
+          link = "https://ifh.cc/g/zBfSxT.jpg";
         }
         else if (score <= 40){
-          link = "https://ifh.cc/g/lZjglm.jpg";
+          link = "https://ifh.cc/g/waKnPW.jpg";
         }
         else if (score <= 60){
-          link = "https://ifh.cc/g/tCAA27.jpg";
+          link = "https://ifh.cc/g/93BJTB.jpg";
         }
         else if (score <= 80 ){
-          link = "https://ifh.cc/g/yRZT1A.jpg";
+          link = "https://ifh.cc/g/sCArjW.jpg";
         }
         
 
@@ -342,7 +347,7 @@ export class GamePage extends Component {
           </Box>
           
           <Box
-            id = 'contentLetter'
+            id = 'extraboldLetter'
             sx={{
               display: 'flex', alignItems:'center', justifyContent: 'end',
               width: '55%'
@@ -354,17 +359,17 @@ export class GamePage extends Component {
         <Box
           component="img"
           sx={{
-            height: '50%',
-            width: (isMobile ? 'fill-available': 'fit-content' )
+            height: '60%',
+            width: 'fill-available'
           }}
-          alt="The house from the offer."
+          alt="background"
           src = {link}
         />
         <Box component="span" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center', height:'40%', width: '100%' }}>
           <Box
-            id = 'contentLetter'
+            id = 'regularLetter'
             m = 'auto'
-            sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', height: '20%', width: "95%"}}
+            sx = {{display: 'flex', fontSize: 14,justifyContent: 'center', alignItems:'center', height: '20%', width: "95%"}}
           >
             {questions[this.state.stage]}
           </Box>
@@ -372,18 +377,19 @@ export class GamePage extends Component {
             sx = {{display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems:'center', height: '100%', width: '100%'}}
           >
             <Box
-              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '40%', width: '100%'}}
+              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '45%', width: '100%'}}
             >
               {selectButtons[this.state.stage].map((selectedButton) => (
                 <Box
                   onClick = {() => scoreSelect(selectedButton.score, selectedButton.id, selectedButton.pop, selectedButton.mon)}
-                  id = 'contentLetter'
+                  id = 'lightLetter'
                   color = {this.state.selected_block === selectedButton.id  ? 'orange':'black'}
                   sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', height: '100%', bgcolor: 'background.paper',
                   overflow: 'hidden',
                   borderRadius: '12px',
                   height: '70%',
                   border: 1,
+                  fontSize: 12,
                   borderColor: (this.state.selected_block == selectedButton.id  ? 'orange':'black'),
                   padding: '5px',
                   boxShadow: 1, margin: '10px'}}
@@ -396,17 +402,18 @@ export class GamePage extends Component {
             </Box>
             
             <Box
-              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '40%', width: '100%'}}
+              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '45%', width: '100%'}}
             >
               {selectButtons_[this.state.stage].map((selectedButton) => (
                 <Box
                   onClick = {() => scoreSelect(selectedButton.score, selectedButton.id, selectedButton.pop, selectedButton.mon)}
-                  id = 'contentLetter'
+                  id = 'lightLetter'
                   color = {this.state.selected_block === selectedButton.id  ? 'orange':'black'}
                   sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', bgcolor: 'background.paper',
                   overflow: 'hidden',
                   borderRadius: '12px',
                   border: 1,
+                  fontSize: 12,
                   borderColor: (this.state.selected_block == selectedButton.id  ? 'orange':'black'),
                   height: '70%',
                   padding: '5px',
@@ -419,12 +426,12 @@ export class GamePage extends Component {
           }
             </Box>
             <Box
-              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '40%', width: '100%'}}
+              sx = {{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems:'center', height: '30%', width: '100%'}}
             >
                 <Box
                     onClick = {() => scoreMinus(this.selectedScore) }
-                    id = 'contentLetter'
-                    sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
+                    id = 'regularLetter'
+                    sx = {{display: 'flex', fontSize: 12,justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
                     overflow: 'hidden',
                     borderRadius: '12px',
                     height: '50%',
@@ -433,9 +440,9 @@ export class GamePage extends Component {
                   다음으로
                 </Box>
                 <Box
-                    onClick = {() => scoreMinus(this.selectedScore) }
-                    id = 'contentLetter'
-                    sx = {{display: 'flex', justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
+                    onClick = {() => scoreMinus(-5) }
+                    id = 'regularLetter'
+                    sx = {{display: 'flex', fontSize: 12, justifyContent: 'center', alignItems:'center', width: '30%', bgcolor: 'background.paper',
                     overflow: 'hidden',
                     borderRadius: '12px',
                     height: '50%',
@@ -458,32 +465,39 @@ export class GamePage extends Component {
           minWidth: { md: 100 },
         }}
       >
-        <Box component="span" sx={{ fontSize: 16, mt: 1, height:'10%' }}>
+        <Box component="span" sx={{ fontSize: 14, mt: 1, height:'30%' }}>
         </Box>
-        <Box id = 'contentLetter' sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', fontSize: 20, height: '5%' }}>
+        <Box id = 'regularLetter' sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', fontSize: 14, height: '5%' }}>
           환경지수
           
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', width: '50%', height: '40%' }}>
           <Bar data={data} options={options} />
         </Box>
-        <Box id = 'contentLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 20, mt: 1, height:'5%' }}>
+        <Box id = 'regularLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 14, mt: 1, height:'5%' }}>
           여론조사
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 16, mt: 1, width: '70%', height:'10%' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 14, mt: 1, width: '70%', height:'10%' }}>
         <PieChart
           data={[
-            { title: 'One', value: popular, color: '#E38627' },
-            { title: 'Two', value: 100-popular, color: '#C13C37' }
+            { title: '나', value: popular, color: '#76BA99' },
+            { title: '라이벌', value: 100-popular, color: '#9A86A4' }
           ]}
-          label={({ dataEntry }) => dataEntry.value}
+          label={({ dataEntry }) => dataEntry.title + " " + dataEntry.value}
           labelStyle={{
             ...defaultLabelStyle,
           }}
-          
         />
         </Box>
-        <Box id = 'contentLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'center',fontSize: 16, mt: 1, width: '50%', height:'20%' }}>
+        <Box sx = {{height:'5%'}}/>
+        <Box
+            sx = {{
+              width: '50%'
+            }}
+            component = "img"
+            src = "https://ifh.cc/g/ZJXdWL.png"
+          />
+        <Box id = 'regularLetter' component="span" sx={{ display: 'flex', justifyContent: 'center', alignItems:'top',fontSize: 14, mt: 1, width: '50%', height:'5%' }}>
           {money}억
         </Box>
       </Box>

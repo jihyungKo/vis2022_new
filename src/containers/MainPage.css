@@ -1,8 +1,36 @@
 @font-face {
-    font-family: "mainfont";
-    src: url("../../public/fonts/나눔손글씨_옥비체.ttf");
-  }
-  
-#TitleLetter{
-    font-family: "mainfont"
+  font-family: "extrabold";
+  src: url("../../public/fonts/나눔스퀘어라운드_extrabold.ttf");
+}
+#extraboldLetter{
+  font-family: "extrabold"
+}
+
+@font-face {
+font-family: "regular";
+src: url("../../public/fonts/나눔스퀘어라운드_regular.ttf");
+}
+#regularLetter{
+font-family: "regular"
+}
+@font-face {
+font-family: "light";
+src: url("../../public/fonts/나눔스퀘어라운드_light.ttf");
+}
+#lightLetter{
+font-family: "light"
+}
+@font-face {
+font-family: "bold";
+src: url("../../public/fonts/나눔스퀘어라운드_Bold.ttf");
+}
+#boldLetter{
+font-family: "bold"
+}
+@font-face {
+font-family: "leeseoyun";
+src: url("../../public/fonts/이서윤체.ttf");
+}
+#leeLetter{
+font-family: "leeseoyun"
 }

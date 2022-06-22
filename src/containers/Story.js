@@ -2,31 +2,33 @@ import React, { Component } from 'react';
 import Box from '@mui/material/Box';
 import Typist from 'react-typist';
 import {isMobile} from 'react-device-detect';
+import './Story.css';
+
 
 const story_images = [
     {
-        image_src: "https://ifh.cc/g/o5N0dQ.jpg",
-        script: "나는 원대한 꿈을 품고 도지사 선거에 출마했다! ▶"
+        image_src: "https://ifh.cc/g/yT3QSq.jpg",
+        script: "나는 큰 꿈을 품고 도지사 선거에 출마했다! ▶"
 
     },
     {
-        image_src: "https://ifh.cc/g/XAb9X7.jpg",
-        script: "티비를 보는데 7회 지선에서 발생한 쓰레기 문제가 심각하다는 글을 보고 환경 공약을 내기로 마음 먹었다. ▶"
+        image_src: "https://ifh.cc/g/4XnlVz.jpg",
+        script: "티비에서 7회 지선에서 발생한 쓰레기 문제가 심각하다는 뉴스를 보고 환경공약을 내고 그에 걸맞게 친환경 선거를 해보리라 마음 먹었다. ▶"
 
     },
     {
-        image_src: "https://ifh.cc/g/zZBVg3.jpg",
-        script: "에구머니나! 그런데 영혼의 라이벌이 같은 도지사 선거에 출마했다. ▶"
+        image_src: "https://ifh.cc/g/hnOF2p.jpg",
+        script: "에구머니나! 그런데 내 영혼의 라이벌이 같은 도지사 선거에 출마했다. ▶"
 
     },
     {
-        image_src: "https://ifh.cc/g/LRFPH7.jpg",
-        script: "나는 이 망할 놈의 자식에게 매번 졌고 이 놈 때문에 내 꿈마저 좌절될 수 없다. ▶"
+        image_src: "https://ifh.cc/g/z8woLt.jpg",
+        script: "나는 이 라이벌에게 항상 졌고 얘 때문에 내 꿈마저 좌절되고 싶지는 않다. ▶"
 
     },
     {
-        image_src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2",
-        script: "(이미지 아직 추가 안함) 분노 활활 ▶"
+        image_src: "https://ifh.cc/g/PF6bfR.jpg",
+        script: "이번에야 말로 라이벌을 물리치고 내 꿈을 펼칠 때다. 환경도 신경쓰면서 꼭 이겨보자! 파이아! ▶"
 
     },
 ];
@@ -107,7 +109,7 @@ export class GameMainPage extends Component {
                     width: (isMobile ? '90vw' : '50vw' )
                 }}
             >
-            <div key = {this.state.stage}>
+            <div key = {this.state.stage} id = "regularLetter" style={{fontSize: 14}}>
                 <Typist>
                     {story_images[this.state.stage].script}
                 </Typist>

@@ -8,19 +8,20 @@ import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import {isMobile} from 'react-device-detect';
+import './GameMainPage.css';
 
 const images = [
     {
       url: "https://ifh.cc/g/v5tZ5G.png",
-      title: '게임바로 시작하기',
+      title: '게임시작',
       width: '50%',
-      dest: "/tutorial"
+      dest: "/story"
     },
     {
       url: "https://ifh.cc/g/v5tZ5G.png",
-      title: '스토리 보기',
+      title: '결과페이지',
       width: '50%',
-      dest: "/story"
+      dest: "/res"
     }
   ];
 
@@ -64,7 +65,7 @@ bottom: 0,
 display: 'flex',
 alignItems: 'center',
 justifyContent: 'center',
-color: theme.palette.common.white,
+color: theme.palette.common.black,
 }));
 
 const ImageBackdrop = styled('span')(({ theme }) => ({
@@ -73,15 +74,15 @@ left: 0,
 right: 0,
 top: 0,
 bottom: 0,
-backgroundColor: theme.palette.common.black,
-opacity: 0.4,
+backgroundColor: theme.palette.common.white,
+opacity: 0.5,
 transition: theme.transitions.create('opacity'),
 }));
 
 const ImageMarked = styled('span')(({ theme }) => ({
 height: 3,
 width: 18,
-backgroundColor: theme.palette.common.white,
+backgroundColor: theme.palette.common.black,
 position: 'absolute',
 bottom: -2,
 left: 'calc(50% - 9px)',
@@ -129,7 +130,7 @@ export class GameMainPage extends Component {
                     alignItems: 'center',
                     justifyContent: 'center',
                     height:  '80vh',
-                    width: (isMobile ? 'fill-available': 'fit-content' )
+                    width: 'fit-content'
                 }}
                 src = "https://ifh.cc/g/C1tSPN.jpg"
             />
@@ -143,7 +144,7 @@ export class GameMainPage extends Component {
                     width: 'fill-available'
                 }}
             >
-            <Box sx={{ display: 'flex', height: "50%", width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', height: "100%", width: '100%', justifyContent: 'flex-start' }}>
               {images.map((image) => (
                 <ImageButton
                   onClick={() => imageclick(image.dest)}
@@ -157,10 +158,12 @@ export class GameMainPage extends Component {
                   <ImageBackdrop className="MuiImageBackdrop-root" />
                   <Image>
                       <Typography
+                      id = "extraboldLetter"
                       component="span"
                       variant="subtitle1"
                       color="inherit"
                       sx={{
+                          fontSize: 18,
                           position: 'relative',
                           p: 4,
                           pt: 2,

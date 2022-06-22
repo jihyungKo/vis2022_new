@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typist from 'react-typist';
+import './Tutorial.css';
 
 export class Tutorial extends Component {
   render() {
@@ -50,11 +51,13 @@ export class Tutorial extends Component {
             />
 
             <Box
+                id = "regularLetter"
                 onClick = {() => imageclick('/game')}
                 sx = {{
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    fontSize: 14,
                     height: '10vh',
                     width: '100vw'
                 }}
