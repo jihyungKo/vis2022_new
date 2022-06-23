@@ -21,7 +21,7 @@ const images = [
       url: "https://ifh.cc/g/vsjckf.png",
       title: '결과페이지',
       width: '50%',
-      dest: "/res"
+      dest: "https://jihyungko.github.io/vis_res/"
     }
   ];
 
@@ -92,10 +92,15 @@ transition: theme.transitions.create('opacity'),
 export class GameMainPage extends Component {
   render() {
     const imageclick = (dest) => {
-      var temp = window.location.href.split('/');
-      temp.pop();
-      var link_temp = temp.join('/');
-      document.location.href = link_temp + dest;
+      if (dest == "https://jihyungko.github.io/vis_res/"){
+        document.location.href = dest;
+      }
+      else{
+        var temp = window.location.href.split('/');
+        temp.pop();
+        var link_temp = temp.join('/');
+        document.location.href = link_temp + dest;
+      }
     }
     return (
       <Box

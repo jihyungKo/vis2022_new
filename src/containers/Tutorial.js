@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typist from 'react-typist';
 import './Tutorial.css';
+import {isMobile} from 'react-device-detect';
 
 export class Tutorial extends Component {
   render() {
@@ -35,7 +36,7 @@ export class Tutorial extends Component {
                 justifyContent: 'center',
                 flexDirection: 'column',
                 height: '100vh',
-                width: '80vw'
+                width: '100vw'
             }}
         >
             <Box
@@ -44,8 +45,8 @@ export class Tutorial extends Component {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    height: '70vh',
-                    width: 'fit-content'
+                    height: '80vh',
+                    width: (isMobile ? 'fill-available': 'fit-content' )
                 }}
                 src = "https://ifh.cc/g/hpP6Ls.jpg"
             />
@@ -58,7 +59,7 @@ export class Tutorial extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                     fontSize: 14,
-                    height: '10vh',
+                    height: '20vh',
                     width: '100vw'
                 }}
             >

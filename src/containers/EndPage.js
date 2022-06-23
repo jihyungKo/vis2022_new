@@ -88,7 +88,7 @@ export class EndPage extends Component {
 
             <Box
                 id = "regularLetter"
-                onClick = {() => document.location.href = link_temp + "/res"}
+                onClick = {() => document.location.href = "https://jihyungko.github.io/vis_res/"}
                 sx = {{
                     display: 'flex',
                     justifyContent: 'center',

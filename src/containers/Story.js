@@ -7,7 +7,7 @@ import './Story.css';
 
 const story_images = [
     {
-        image_src: "https://ifh.cc/g/yT3QSq.jpg",
+        image_src: "https://ifh.cc/g/xRnn4m.jpg",
         script: "나는 큰 꿈을 품고 도지사 선거에 출마했다! ▶"
 
     },
@@ -27,7 +27,7 @@ const story_images = [
 
     },
     {
-        image_src: "https://ifh.cc/g/PF6bfR.jpg",
+        image_src: "https://ifh.cc/g/ny8Rho.jpg",
         script: "이번에야 말로 라이벌을 물리치고 내 꿈을 펼칠 때다. 환경도 신경쓰면서 꼭 이겨보자! 파이아! ▶"
 
     },
